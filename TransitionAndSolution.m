@@ -46,11 +46,37 @@ n=length(t);
 x=zeros(5,n); 
 xx=zeros(5,n);
 %求解状态变量和输出
+syms tau_real % 定义一个实际的符号变量用于积分和计算
 for i=1:n
-    xx(:,i)=expm(L*t(i))*xx0;
-    x(:,i)=W*xx(:,i);
-    y = C*x;
+    tau_val = t(i); % 当前时间点
+    % 根据输入类型计算u的值
+    switch Whichu
+        case '阶跃'
+            u_val = 1;
+        case '斜坡'
+            u_val = tau_val;
+        case '加速度'
+            u_val = tau_val^2/2;
+        case '脉冲'
+            if tau_val == 0
+                u_val = Inf; % 脉冲在t=0时无限大
+            else
+                u_val = 0; % 其他时间点为0
+            end
+    end
+    % 计算状态变量和输出
+    if tau_val == 0
+        xx(:,i) = xx0; % 初始状态
+    else
+        xx(:,i) = expm(L*tau_val)*xx0; % 根据L矩阵和初始状态计算当前状态
+        % 对于非脉冲输入，可以直接使用u_val，对于脉冲输入，需要特殊处理
+        if ~strcmp(Whichu, '脉冲')
+            xx(:,i) = xx(:,i) + B*u_val; % 这里简化处理，实际可能需要考虑积分
+        end
+    end
+    x(:,i) = W*xx(:,i); % 转换回原始状态空间
 end
+y = C*x; % 计算输出
 subplot(2,1,1)
 plot(t,x)
 title('零输入时的状态变量');
