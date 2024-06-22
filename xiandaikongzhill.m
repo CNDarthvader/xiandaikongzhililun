@@ -51,7 +51,7 @@ disp('要想使用Lyapunov第二法，输入Lyapunov2(A)')
 
 
 %极点配置问题
-fprintf('要想进行极点配置，输入stateFeedbackPolePlacement(A, B)\n')
+fprintf('要想进行极点配置，输入stateFeedbackPolePlacement(A,B,C,D)\n')
 
 
 %镇定问题
@@ -67,5 +67,5 @@ disp('要想配置状态观测器，输入calculateObserverGain(A,B,C)')
 disp('要想得到闭环系统的阶跃响应，输入CloseloopReaction(A,B,C,D)')
 
 %链接状态观测器
-disp('要想得到闭环系统的阶跃响应，输入Connection(k,L,A,B,C,D)')
+disp('要想得到链接了状态观测器的系统的阶跃响应(应先求出k和L)，输入Connection(k,L,A,B,C,D)')
 

@@ -34,7 +34,7 @@ end
 
 
 %解
-disp('要想求出状态转移矩阵和系统的解，输入TansitionAndSolution(A,B)')
+disp('要想求出状态转移矩阵和系统的解，输入TransitionAndSolution(A,B,C)')
 
 
 % 检查系统的可控性
@@ -51,7 +51,7 @@ disp('要想使用Lyapunov第二法，输入Lyapunov2(A)')
 
 
 %极点配置问题
-fprintf('要想进行极点配置，输入stateFeedbackPolePlacement(A, B)\n')
+fprintf('要想进行极点配置，输入stateFeedbackPolePlacement(A,B,C,D)\n')
 
 
 %镇定问题
@@ -64,8 +64,8 @@ disp('要想将系统解耦，输入decoupleSystem(A, B, C, D)')
 disp('要想配置状态观测器，输入calculateObserverGain(A,B,C)')
 
 %系统响应
-% 一个基于LQR的状态反馈控制器和一个基于状态观测器的闭环控制系统，
-% 模拟了该系统对正弦波输入信号的响应，并绘制了响应曲线
-disp('')
+disp('要想得到闭环系统的阶跃响应，输入CloseloopReaction(A,B,C,D)')
 
+%链接状态观测器
+disp('要想得到链接了状态观测器的系统的阶跃响应(应先求出k和L)，输入Connection(k,L,A,B,C,D)')
 

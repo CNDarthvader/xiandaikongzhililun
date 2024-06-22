@@ -25,6 +25,9 @@ figure(2)       %求出响应图
 [y,x,t]=step(a1,b1,c1,d1);
 plot(t,x)
 title('状态变量x1,x2,x3,x4,x5的阶跃响应')
+figure(3)
+plot(t,y)
+title('输出y的阶跃响应')
 grid on
 
 sys = ss(a1,b1,c1,d1);
@@ -38,4 +41,8 @@ Denarray = DenArray(1,:);
 disp('闭环传递函数')
 G1=tf(Numarray,Denarray)
 assignin('base', 'k', k);
+assignin('base', 'a1', a1)
+assignin('base', 'b1', b1)
+assignin('base', 'c1', c1)
+assignin('base', 'd1', d1)
 end
