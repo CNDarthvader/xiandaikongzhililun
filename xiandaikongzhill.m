@@ -34,7 +34,7 @@ end
 
 
 %解
-disp('要想求出状态转移矩阵和系统的解，输入TansitionAndSolution(A,B)')
+disp('要想求出状态转移矩阵和系统的解，输入TransitionAndSolution(A,B,C)')
 
 
 % 检查系统的可控性

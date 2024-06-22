@@ -47,6 +47,7 @@ x=zeros(5,n);
 xx=zeros(5,n);
 %求解状态变量和输出
 syms tau_real % 定义一个实际的符号变量用于积分和计算
+u_val = 0;
 for i=1:n
     tau_val = t(i); % 当前时间点
     % 根据输入类型计算u的值
@@ -84,6 +85,7 @@ xlabel('Time-sec'); ylabel('Response-value');
 subplot(2,1,2)
 plot(t,y)
 title('零输入时的系统输出')
-
+xlabel('Time-sec'); ylabel('Response-value');
+end
 
 
