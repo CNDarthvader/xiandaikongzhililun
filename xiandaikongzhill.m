@@ -64,8 +64,8 @@ disp('要想将系统解耦，输入decoupleSystem(A, B, C, D)')
 disp('要想配置状态观测器，输入calculateObserverGain(A,B,C)')
 
 %系统响应
-% 一个基于LQR的状态反馈控制器和一个基于状态观测器的闭环控制系统，
-% 模拟了该系统对正弦波输入信号的响应，并绘制了响应曲线
 disp('要想得到闭环系统的阶跃响应，输入CloseloopReaction(A,B,C,D)')
 
+%链接状态观测器
+disp('要想得到闭环系统的阶跃响应，输入Connection(k,L,A,B,C,D)')
 
